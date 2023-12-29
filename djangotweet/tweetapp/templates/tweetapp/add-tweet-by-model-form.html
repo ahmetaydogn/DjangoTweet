@@ -1,0 +1,31 @@
+{%extends "base.html"%}
+{% load static %}
+
+{% block content %}
+<h3 style="text-align: center;">Add Tweet By Model Form</h3>
+<main class="form-signin m-auto tweet-form" style="width: 50%; min-width: 120px;">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <div class="form-floating">
+                {{ form.name }}
+                <label for="name">Name</label>
+            </div>
+            <div class="form-floating">
+                {{ form.surname }}
+                <label for="surname">Surname</label>
+            </div>
+            <!-- <div class="form-floating">
+                {{ form.nickname }}
+                <label for="nickname">Nickname</label>
+            </div> -->
+            <div class="form-floating">
+                {{ form.message }}
+                <label for="message">Message</label>
+            </div>
+        </div>
+        <button style="margin-top: 1em;" class="btn btn-primary w-100 py-2" type="submit">Share your Tweet</button>
+    </form>
+</main>
+
+{% endblock %}

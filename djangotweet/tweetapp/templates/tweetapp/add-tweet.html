@@ -1,0 +1,33 @@
+{%extends "base.html"%}
+{% load static %}
+
+{% block content %}
+<h3 style="text-align: center;">Add Tweet</h3>
+<main class="form-signin m-auto" style="width: 50%; min-width: 120px;">
+    <form action="" method="post">
+      {% csrf_token %}
+      <h1 class="h3 mb-3 fw-normal">Please Enter Your Information & Tweet </h1>
+  
+      <div class="form-floating">
+        <input type="text" class="form-control" id="name" placeholder="Ahmet" name="name" required>
+        <label for="name">Name</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="surname" placeholder="Aydoğan" name="surname" required>
+        <label for="surname">Surname</label>
+      </div>
+      <!-- <div class="form-floating">
+        <input type="text" class="form-control" id="nickname" placeholder="AheDo" name="nickname" required>
+        <label for="nickname">Nickname</label>
+      </div> -->
+      <div class="form-floating">
+        <textarea placeholder="Message" class="form-control" name="message" id="message" 
+                  cols="30" rows="10" style="height: 100px; max-height: 160px;" required></textarea>
+        <label for="message">Message</label>
+      </div>
+  
+      <button style="margin-top: 1em;" class="btn btn-primary w-100 py-2" type="submit">Share your Tweet</button>
+    </form>
+  </main>
+
+{% endblock %}

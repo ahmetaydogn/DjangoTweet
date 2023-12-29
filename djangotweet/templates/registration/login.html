@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+<h4 style="text-align: center;">Welcome {{ user.username }}</h4>
+
+{% else %}
+
+<main class="form-signin m-auto tweet-form" style="width: 25%; min-width: 120px;">
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <div class="form-floating">
+                {{ form.username|add_class:'form-control'|attr:"placeholder:Username" }}
+                <label for="username">Username</label>
+            </div>
+            <div class="form-floating">
+                {{ form.password|add_class:'form-control'|attr:"placeholder:Password" }}
+                <label for="password">Password</label>
+            </div>
+            <div class="form-floating">
+                <button type="submit" class="btn btn-primary login-button">Login</button>
+            </div>
+        </div>
+    </form>
+</main>
+{% endif %}
+
+
+{% endblock %}
+<!-- Hw12Lo_K -->

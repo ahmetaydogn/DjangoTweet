@@ -1,0 +1,11 @@
+/* Add Tweet Forms */
+.tweet-form form .mb-3 .form-floating input, textarea {
+    margin: 0.3em 0em;
+    height: 58px;
+}
+
+.tweet-form form .mb-3 .form-floating textarea:first-child {
+    margin: 0.3em 0em 0em 0em !important;
+    max-height: 140px;
+    color: red;
+}

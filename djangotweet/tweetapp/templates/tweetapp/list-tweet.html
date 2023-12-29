@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1 style="text-align: center;">List Tweet Page!</h1>
+
+<main class="list-cards">
+    {% for tweet in tweets %}
+    <div class="card mb-3" class={{colour}} style="max-width: 18rem;">
+        <div class="card-header">{{ tweet.name }} {{ tweet.surname }}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ tweet.username }}</h5>
+          {% if tweet.message|length > 40 %}
+          <p class="card-text">{{tweet.message|truncatechars:80}}</p>
+          {% else %}
+          <p class="card-text">{{ tweet.message }}</p>
+          {% endif %}
+        </div>
+        {% if tweet.username == user %}
+        <div class="card-body">
+            <a href="{% url 'tweetapp:delete-tweet' id=tweet.id %}" class="btn btn-danger">Remove</a>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</main>
+
+<!-- <ul>
+    {% for tweet in tweets %}
+    <li>{{ tweet.nickname }} {{ tweet.name }} {{ tweet.surname }} {{ tweet.message }}</li>
+    {% endfor %}
+</ul> -->
+{% endblock %}
